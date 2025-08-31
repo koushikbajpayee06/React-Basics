@@ -1,0 +1,12 @@
+
+.section{
+    padding-top: 50px;
+    font-family: Arial;
+}
+.section-title{
+    font-size: 50px;
+    font-weight: bold;
+}
+.section-subtitle{
+    font-size: 20px;
+}
