@@ -5,15 +5,11 @@ export function DataBinding1(){
     const [product, setProduct] = useState({title:'',price:0, image:"",rating:{rate:0, ratings:0, reviews:0}, offers:[]});
 
     function GetProduct(){
-        var http = new XMLHttpRequest();
-        http.open('get','product.json',true);
-        http.send();
-        http.onreadystatechange = function(){
-            if(http.readyState ===4){
-                // console.log(http.responseText);
-                 setProduct(JSON.parse(http.responseText));
-            }
-        }
+        fetch('product.json')
+        .then(response=>response.json())
+        .then(product=>{
+            setProduct(product);
+        })
     }
    
     useEffect(()=>{
@@ -22,6 +18,7 @@ export function DataBinding1(){
 
     return(
         <div className="cobtainer-fluid">
+            
             <div className="row">
                 <div className="col-3">
                     <img src={product.image} width="100%"/>
